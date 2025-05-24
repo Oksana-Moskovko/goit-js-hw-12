@@ -122,7 +122,7 @@ input[name="search-text"]:focus {
   color: #2e2f42;
 }
 
-.iziToast-wrapper-bottomRight {
+.iziToast-wrapper {
   top: 0px;
   right: 0px;
   text-align: right;

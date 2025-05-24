@@ -4,8 +4,6 @@ import {
   clearGallery,
   showLoader,
   hideLoader,
-  showLoaderBottom,
-  hideLoaderBottom,
   showLoadMoreButton,
   hideLoadMoreButton
 } from './js/render-functions.js';
@@ -16,6 +14,9 @@ import "izitoast/dist/css/iziToast.min.css";
 const form = document.querySelector('.form');
 const input = document.querySelector('input[name="search-text"]');
 const loadMoreButton = document.querySelector('.btn-load-more');
+const loaderTop = document.querySelector('.loader-top');
+const loaderBottom = document.querySelector('.loader-bottom');
+
 
 let page = 1;
 let totalPages = 0;
@@ -45,7 +46,7 @@ form.addEventListener('submit', async e => {
     return;
   }
   
-  showLoader();
+  showLoader(loaderTop);
   clearGallery();
   
   try {
@@ -74,7 +75,7 @@ form.addEventListener('submit', async e => {
       message: 'Something went wrong. Please try again later.',
     });
   } finally {
-    hideLoader();
+    hideLoader(loaderTop);
   }   
 });
 
@@ -90,8 +91,8 @@ loadMoreButton.addEventListener('click', async () => {
     hideLoadMoreButton();
     return;
   }
-
-  showLoaderBottom();
+  
+  showLoader(loaderBottom);
 
   try {
     const images = await fetchPosts();
@@ -115,7 +116,7 @@ loadMoreButton.addEventListener('click', async () => {
       message: 'Failed to load more posts.',
     });
   } finally {
-    hideLoaderBottom();
+    hideLoader(loaderBottom);;
   }
 });
 

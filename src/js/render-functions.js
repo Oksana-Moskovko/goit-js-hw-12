@@ -38,24 +38,13 @@ export function createGallery(images) {
 export function clearGallery() {
   gallery.innerHTML = "";
 }
-
-export function showLoader() {
-  const loaderTop = document.querySelector('.loader-top');
-  loaderTop.style.display = 'block';
-}
-export function hideLoader() {
-  const loaderTop = document.querySelector('.loader-top');
-  loaderTop.style.display = 'none';
-}
-export function showLoaderBottom() {
-  const loaderBottom = document.querySelector('.loader-bottom');
-  loaderBottom.style.display = 'block';
-}
-export function hideLoaderBottom() {
-  const loaderBottom = document.querySelector('.loader-bottom');
-  loaderBottom.style.display = 'none';
+export function showLoader(loader) {
+  loader.style.display = 'block';
 }
 
+export function hideLoader(loader) {
+  loader.style.display = 'none';
+}
 export function showLoadMoreButton() {
   const buttonLoadMore = document.querySelector('.btn-load-more');
   buttonLoadMore.style.display = 'block';
