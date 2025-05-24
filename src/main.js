@@ -62,11 +62,15 @@ form.addEventListener('submit', async e => {
     }
 
     createGallery(images);
-    if (totalPages > 1 && page < totalPages) {
+    
+    if (totalPages > 1) {
       showLoadMoreButton();
     } else {
       hideLoadMoreButton();
     }
+
+    page += 1;
+
   } catch (error) {
     iziToast.error({
       position: 'topRight',
@@ -106,7 +110,6 @@ loadMoreButton.addEventListener('click', async () => {
     }
 
   } catch (error) {
-    showError();
     iziToast.error({
       position: 'topRight',
       message: 'Failed to load more posts.',
