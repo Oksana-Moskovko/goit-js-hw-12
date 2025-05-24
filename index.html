@@ -3,23 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>goit-js-hw-11</title>
+    <title>goit-js-hw-12</title>
     <script type="module" crossorigin src="/goit-js-hw-12/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-1AYLTIiv.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-CrlV4O_2.js">
     <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/vendor-CWKLx11g.css">
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/index-YttnMVNm.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/index-g6c29_El.css">
   </head>
   <body>
     <form class="form">
       <label>
         <input type="text" name="search-text" placeholder="Search images..." required>
       </label>
-      <button type="submit">Search</button>
+      <button class="btn-search" type="submit">Search</button>
       </form>
 
     <div class="container">
-      <span class="loader" style="display: none;"></span>
+      <span class="loader loader-top" style="display: none;"></span>
       <ul class="gallery"></ul>
+      <span class="loader loader-bottom" style="display: none;"></span>
+      <button class="btn-load-more" type="submit" style="display: none;">Load more</button>
     </div>
     
   </body>
