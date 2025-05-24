@@ -26,8 +26,6 @@ let query = "";
 // === Fetching posts ===
 async function fetchPosts() {
   const data = await getImagesByQuery(query, page);
-  totalPages = Math.ceil(data.totalHits / perPage);
-
   return data.hits;
 }
 
@@ -64,7 +62,7 @@ form.addEventListener('submit', async e => {
     }
 
     createGallery(images);
-    if (totalPages > 1) {
+    if (totalPages > 1 && page < totalPages) {
       showLoadMoreButton();
     } else {
       hideLoadMoreButton();
@@ -81,34 +79,32 @@ form.addEventListener('submit', async e => {
 
 // === On "Load more" button click ===
 loadMoreButton.addEventListener('click', async () => {
-  page += 1;
-
-  if (page >= totalPages) {
-    iziToast.error({
-      position: 'topRight',
-      message: 'We\'re sorry, there are no more posts to load',
-    });
-    hideLoadMoreButton();
-    return;
-  }
-  
   showLoader(loaderBottom);
 
   try {
     const images = await fetchPosts();
     createGallery(images);
 
-    const imagesContainer = document.querySelector('.gallery-item');
-    const cardHeight = imagesContainer.getBoundingClientRect().height;
+    const firstCard = document.querySelector('.gallery-item');
+    if (firstCard) {
+      const cardHeight = firstCard.getBoundingClientRect().height;
 
-    window.scrollBy({
-      top: 2 * cardHeight,
-      behavior: "smooth",
-    });
-    
-    if (page >= totalPages) {
-      hideLoadMoreButton();
+      window.scrollBy({
+        top: 2 * cardHeight,
+        behavior: "smooth",
+      });
     }
+
+    page += 1;
+
+    if (page > totalPages) {
+      hideLoadMoreButton();
+      iziToast.info({
+        position: 'topRight',
+        message: 'We\'re sorry, there are no more posts to load.',
+      });
+    }
+
   } catch (error) {
     showError();
     iziToast.error({
@@ -116,7 +112,6 @@ loadMoreButton.addEventListener('click', async () => {
       message: 'Failed to load more posts.',
     });
   } finally {
-    hideLoader(loaderBottom);;
+    hideLoader(loaderBottom);
   }
 });
-
