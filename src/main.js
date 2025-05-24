@@ -16,8 +16,7 @@ import "izitoast/dist/css/iziToast.min.css";
 const form = document.querySelector('.form');
 const input = document.querySelector('input[name="search-text"]');
 const loadMoreButton = document.querySelector('.btn-load-more');
-// const loaderTop = document.querySelector('.loader-top');
-// const loaderBottom = document.querySelector('.loader-bottom');
+
 let page = 1;
 let totalPages = 0;
 const perPage = 15;
