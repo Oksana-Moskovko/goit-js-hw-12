@@ -8,8 +8,8 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-export function createGallery(hits) {
-  const markup = hits
+export function createGallery(images) {
+  const markup = images
     .map((img) => `
       <li class="gallery-item">
         <a class="gallery-link" href="${img.largeImageURL}">
@@ -29,7 +29,8 @@ export function createGallery(hits) {
       `)
     .join("");
     
-  gallery.innerHTML = markup;
+  // gallery.innerHTML = markup;
+  gallery.insertAdjacentHTML("beforeend", markup);
   lightbox.refresh();
 }
 
@@ -39,10 +40,28 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-  const loader = document.querySelector('.loader');
-  loader.style.display = 'block';
+  const loaderTop = document.querySelector('.loader-top');
+  loaderTop.style.display = 'block';
 }
 export function hideLoader() {
-  const loader = document.querySelector('.loader');
-  loader.style.display = 'none';
+  const loaderTop = document.querySelector('.loader-top');
+  loaderTop.style.display = 'none';
 }
+export function showLoaderBottom() {
+  const loaderBottom = document.querySelector('.loader-bottom');
+  loaderBottom.style.display = 'block';
+}
+export function hideLoaderBottom() {
+  const loaderBottom = document.querySelector('.loader-bottom');
+  loaderBottom.style.display = 'none';
+}
+
+export function showLoadMoreButton() {
+  const buttonLoadMore = document.querySelector('.btn-load-more');
+  buttonLoadMore.style.display = 'block';
+}
+export function hideLoadMoreButton() {
+  const buttonLoadMore = document.querySelector('.btn-load-more');
+  buttonLoadMore.style.display = 'none';
+}
+  

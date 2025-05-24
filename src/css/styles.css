@@ -14,7 +14,7 @@
   text-align: center;
 }
 
-button[type="submit"] {
+.btn-search {
   border-radius: 8px;
   padding: 8px 16px;
   width: 91px;
@@ -27,9 +27,29 @@ button[type="submit"] {
   letter-spacing: 0.04em;
   color: #fff;
 }
+.btn-load-more {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 125px;
+  height: 40px;
+  background-color: #4e75ff;
+  margin-top: 32px;
+  
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-button[type="submit"]:hover,
-button[type="submit"]:focus {
+
+.btn-search:hover,
+.btn-search:focus,
+.btn-load-more:hover,
+.btn-load-more:focus {
   background: #6c8cff;
 }
 
@@ -59,7 +79,7 @@ input[name="search-text"]:focus {
   flex-wrap: wrap;
   gap: 24px;
   margin-top: 32px;
-  
+  justify-content: center;
 }
 
 .gallery-item {
@@ -79,6 +99,7 @@ input[name="search-text"]:focus {
   display: flex;
   gap: 32px;
   justify-content: center;
+  padding: 4px 25px 4px 20px;
 }
 .information p {
   font-family: "Montserrat", sans-serif;
@@ -89,7 +110,6 @@ input[name="search-text"]:focus {
   color: #2e2f42;
   text-align: center;
   width: 72px;
-  margin-top: 4px;
 }
 
 .bold-font{
